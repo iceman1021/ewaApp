@@ -1,0 +1,33 @@
+<ons-page>
+    <div class="navigation-bar">
+        <div class="navigation-bar__left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+
+        <div class="navigation-bar__center">
+            Historic Water Readings
+        </div>
+
+        <div class="navigation-bar__right">
+        </div>
+    </div>
+    <div style="text-align: center">
+        <br>
+        <img src="images/ewaLogo.png" style="width: 40%"/>
+    </div>
+    <div class="login-form">
+        <p>Please enter the readings for the last 3 months.</p>
+        <input type="number" class="text-input--underbar width-full" ng-model="data.waterHR1" placeholder="Water Reading (1 month ago)" value="">
+        <input type="number" class="text-input--underbar width-full" ng-model="data.waterHR2" placeholder="Water Reading (2 months ago)" value="">
+        <input type="number" class="text-input--underbar width-full" ng-model="data.waterHR3" placeholder="Water Reading (3 months ago)" value="">
+        <br><br>
+        <div class="notification-dialog">
+            <div class="notification-dialog-title"><ons-icon icon="fa-exclamation-triangle" size="20px"></ons-icon> Notice</div>
+            <div class="notification-dialog-content">
+                Please enter the reading of your meter and not the KL used.
+            </div>
+        </div>
+        <br><br>
+        <ons-button modifier="large" class="login-button" ng-click="submitHisWater();">Submit</ons-button>
+    </div>
+</ons-page>

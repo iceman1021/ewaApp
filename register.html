@@ -1,0 +1,55 @@
+<ons-page>
+    <div class="navigation-bar">
+        <div class="navigation-bar__left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+
+        <div class="navigation-bar__center">
+            Register
+        </div>
+
+        <div class="navigation-bar__right">
+        </div>
+    </div>
+    <div style="text-align: center">
+        <br>
+        <img src="images/ewaLogo.png" style="width: 40%"/>
+    </div>
+    <div class="formarea">
+        <div class="form-row">
+            <input type="text" name="accnum" class="text-input--underbar width-full" ng-model="data.accnum" placeholder="Municipality Account Number">
+        </div>
+        
+        <div class="form-row">
+            <input type="text" name="accountfor" class="text-input--underbar" ng-model="data.accountfor" placeholder="Municipality Account for" style="width: 85%;"><ons-icon id="help" icon="ion-ios-help" size="30px" fixed-width="true" ng-click="show('#help')" ></ons-icon>
+        </div>
+        
+        <div class="form-row">
+            <input type="text" name="address" class="text-input--underbar width-full" ng-model="data.address" placeholder="Residetial Address">
+        </div>
+        
+        <div class="form-row">
+            <input type="text" name="name" class="text-input--underbar width-full" ng-model="data.name" placeholder="Name">
+        </div>
+        
+        <div class="form-row">
+            <input type="text" name="surname" class="text-input--underbar width-full" ng-model="data.surname" placeholder="Surname">
+        </div>
+        
+        <div class="form-row">
+            <input type="text" name="cell" class="text-input--underbar width-full" ng-model="data.cell" placeholder="Cell Number" >
+        </div>
+        
+        <div class="form-row">
+            <input type="text" name="email" class="text-input--underbar width-full" ng-model="data.email" placeholder="Email Address" >
+        </div>
+
+        <div class="form-row">
+            <input type="password" class="text-input--underbar width-full" ng-model="data.password" placeholder="Password" value="">
+        </div>
+
+        <div class="vspc form-row">
+            <ons-button modifier="large--cta" ng-click="registerMe();">Sign up</ons-button>
+        </div>
+    </div>
+</ons-page>

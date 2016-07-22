@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        
+        <!-- JS dependencies (order matters!) -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/plugin/google-chart/ng-google-chart.js"></script>
+        <script src="js/sanitize.js"></script>
+        <script src="js/onsenui.js"></script>
+        <script src="phonegap.js"></script>
+        <script src="js/app.js"></script>  
+        
+        <!-- CSS dependencies -->
+        <link rel="stylesheet" href="css/onsenui.css" />
+        <link rel="stylesheet" href="css/onsen-css-components.css" />
+        <link rel="stylesheet" href="css/app.css" />
+    </head>
+    <body ng-controller="AppController">   
+        <ons-navigator title="Navigator" var="myNavigator">
+            <ons-page>
+                <div class="navigation-bar">
+                    <div class="navigation-bar__left">
+                    </div>
+
+                    <div class="navigation-bar__center">
+                      EWA
+                    </div>
+
+                    <div class="navigation-bar__right">
+                    </div>
+                </div>
+                <div class="forntPage">
+                    <br>
+                    <img src="images/ewaLogo.png" alt="LOGO" />
+                    <p><button class="button button--large" ng-click="myNavigator.pushPage('login.html', { animation : 'fade' } );">Login</button></p>
+                    <p><button class="button button--large--cta" ng-click="myNavigator.pushPage('register.html', { animation : 'fade' } );">Register</button></p>
+                    <p><button class="button button--quiet" ng-click="myNavigator.pushPage('howitworks.html', { animation : 'fade' } );">How to guide</button></p>
+                </div>
+            </ons-page>
+        </ons-navigator>
+        <ons-modal var="modal" ng-click="modal.hide()">
+            <ons-icon icon="{{data.errorIcon}}" size="40px " spin="{{data.errorIconSpin}}" fixed-width="true"></ons-icon>
+            <br>
+            <br>{{data.errorCode}}
+            <br>
+        </ons-modal>
+        <ons-template id="menupopover.html">
+            <ons-popover modifier="simple" direction="up down" cancelable style="width: 320px">
+                <div class="menuPopover">
+                </div>
+            </ons-popover>
+        </ons-template>
+        <ons-template id="accForPopover.html">
+            <ons-popover direction="up down" cancelable>
+                <div style="text-align: center; background-color: #fff">
+                    <p>Please use the "Account for" number. It will be somthing like "P16". Please see image below.</p>
+                    <p><img src="images/accforSample.png" alt="accfor" /></p>
+                </div>
+            </ons-popover>
+        </ons-template>
+    </body>
+</html>

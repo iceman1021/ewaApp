@@ -1,0 +1,37 @@
+<ons-page>
+    <div class="navigation-bar">
+        <div class="navigation-bar__left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+
+        <div class="navigation-bar__center">
+            Water Reading
+        </div>
+
+        <div class="navigation-bar__right">
+        </div>
+    </div>
+    <div style="text-align: center">
+        <br>
+        <img src="images/ewaLogo.png" style="width: 40%"/>
+    </div>
+    <br><br>
+    <div class="notification-dialog">
+        <div class="notification-dialog-title"><ons-icon icon="fa-area-chart" size="20px"></ons-icon> Usage Stats</div>
+        <div class="notification-dialog-content">
+            <div google-chart chart="myChartWater" style="width:100%"></div>
+    
+            <p style="padding:0 10px;"><small>Previous Reading: {{preWaterData}}</small></p>
+        </div>
+    </div>
+    <h4 style="padding-left: 10px">New Reading</h4>
+    
+    <div class="login-form">
+        
+        <input type="number" class="text-input--underbar width-full" ng-model="data.waterReading" placeholder="Water Reading" value="">
+        <br><br>
+        <input type="file" name="file" onchange="angular.element(this).scope().uploadedFile(this)" />
+        <br><br>
+        <ons-button modifier="large" class="login-button" ng-click="submitWater();">Submit</ons-button>
+    </div>
+</ons-page>
