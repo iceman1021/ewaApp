@@ -62,9 +62,11 @@
         
         $scope.waterData = '';
         $scope.preWaterData = '';
+        $scope.historyWreading = false;
         
         $scope.elecData = '';
         $scope.preElecData = '';
+        $scope.historyEreading = false;
         
         $scope.wusage = [];
         $scope.eusage = [];
@@ -338,12 +340,22 @@
                     if (data['error'] === 0) {
                         modal.hide();
                         $scope.data.elecReading = '';
+                        $scope.historyWreading = true;
                         ons.notification.alert({
                             messageHTML: data['html'],
                             title: 'Success',
                             buttonLabel: 'OK',
                             animation: 'default', 
                             callback: function() {
+                                if ($scope.historyEreading && $scope.historyWreading) {
+                                    $scope.notifications = '<p><button class="button button--large" ng-click="getWaterStats();">Water Reading</button></p>\n\
+                                    <p><button class="button button--large" ng-click="getElecStats();">Electricity Reading</button></p>\n\
+                                    <p><button class="button button--large" ng-click="getUsage();">My Usage</button></p>';
+                                } else {
+                                    $scope.notifications = '\
+                                    <p>We only require your historic electricity reading.</p>\n\
+                                    <p><button class="button button--large" ng-click="myNavigator.pushPage(\'elecHisReading.html\', { animation : \'fade\' } );">Historic Electricity</button></p>';
+                                }
                                 myNavigator.pushPage('home.html', { animation : 'fade' });
                             }
                         });
@@ -386,12 +398,22 @@
                     if (data['error'] === 0) {
                         modal.hide();
                         $scope.data.elecReading = '';
+                        $scope.historyEreading = true;
                         ons.notification.alert({
                             messageHTML: data['html'],
                             title: 'Success',
                             buttonLabel: 'OK',
                             animation: 'default', 
                             callback: function() {
+                                if ($scope.historyEreading && $scope.historyWreading) {
+                                    $scope.notifications = '<p><button class="button button--large" ng-click="getWaterStats();">Water Reading</button></p>\n\
+                                    <p><button class="button button--large" ng-click="getElecStats();">Electricity Reading</button></p>\n\
+                                    <p><button class="button button--large" ng-click="getUsage();">My Usage</button></p>';
+                                } else {
+                                    $scope.notifications = '\
+                                    <p>We only require your historic water reading.</p>\n\
+                                    <p><button class="button button--large" ng-click="myNavigator.pushPage(\'waterHisReading.html\', { animation : \'fade\' } );">Historic Water</button></p>';
+                                }
                                 myNavigator.pushPage('home.html', { animation : 'fade' });
                             }
                         });
