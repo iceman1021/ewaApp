@@ -675,4 +675,12 @@
             $scope.popover.show(e);
         };
     });
+    
+    window.analytics.startTrackerWithId('UA-84898542-2');
+    window.analytics.setUserId(device.uuid);
+    window.analytics.trackView('index');
+    window.analytics.trackView('login');
+    window.analytics.trackView('register');
+    window.analytics.trackView('How It Works');
+    window.analytics.debugMode();
 })();
