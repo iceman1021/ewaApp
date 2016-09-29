@@ -675,5 +675,4 @@
             $scope.popover.show(e);
         };
     });
-    
 })();
